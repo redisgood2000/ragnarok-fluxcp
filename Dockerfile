@@ -15,12 +15,15 @@ RUN git clone --depth 1 --branch master https://github.com/rathena/FluxCP.git /v
 
 COPY config/import/ /var/www/html/config/import/
 COPY website/ /tmp/fluxcp-website/
-# Bootstrap inherits page templates from Default, but has its own stylesheet.
-# Patch every theme stylesheet independently, and replace the inherited Default
-# homepage once so both themes render the same custom landing page.
+
+# Install a dedicated, cache-busted stylesheet in both supported themes.
+# Loading it at the end of <head> ensures it wins over theme and Bootstrap rules.
 RUN for theme in default bootstrap; do \
-      if [ -f "/var/www/html/themes/$theme/css/flux.css" ]; then \
-        cat /tmp/fluxcp-website/fluxcp-overrides.css >> "/var/www/html/themes/$theme/css/flux.css"; \
+      if [ -f "/var/www/html/themes/$theme/header.php" ] && [ -f "/var/www/html/themes/$theme/css/flux.css" ]; then \
+        cp /tmp/fluxcp-website/fluxcp-overrides.css "/var/www/html/themes/$theme/css/ro-custom.css"; \
+        if ! grep -q "ro-custom.css" "/var/www/html/themes/$theme/header.php"; then \
+          sed -i '/<\\/head>/i\\        <link rel="stylesheet" href="<?php echo $this->themePath('\''css/ro-custom.css'\'') ?>?v=20261108" type="text/css" media="screen" />' "/var/www/html/themes/$theme/header.php"; \
+        fi; \
       fi; \
     done \
     && cp /tmp/fluxcp-website/main-index.php /var/www/html/themes/default/main/index.php \
