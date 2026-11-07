@@ -4,9 +4,9 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends git unzip libpng-dev libjpeg62-turbo-dev libfreetype6-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j"$(nproc)" pdo_mysql mysqli gd \
-    && (a2dismod mpm_event mpm_worker mpm_prefork >/dev/null 2>&1 || true) \
+    && rm -f /etc/apache2/mods-enabled/mpm_*.load /etc/apache2/mods-enabled/mpm_*.conf \
     && a2enmod mpm_prefork rewrite headers \
-    && apache2ctl -M | grep -q 'mpm_prefork_module' \
+    && test "$(apache2ctl -M 2>/dev/null | grep -Ec 'mpm_(event|worker|prefork)_module')" -eq 1 \
     && rm -rf /var/lib/apt/lists/*
 
 # Pull the maintained upstream control panel; this repository contains only
