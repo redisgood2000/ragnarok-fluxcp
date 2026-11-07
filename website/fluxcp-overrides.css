@@ -106,3 +106,49 @@ input[type=submit], input[type=button], button {
   .ro-hero { padding: 24px 19px; }
   #loginbox { font-size: 12px; }
 }
+
+
+/* Polished Rune Midgard landing-page finish */
+body { background-attachment: fixed; }
+body > table { position: relative; }
+.ro-hero::before {
+  content: "RO"; position: absolute; right: 5%; top: 50%; transform: translateY(-54%);
+  color: rgba(245,213,142,.055); font-family: Georgia,serif; font-weight: 900;
+  font-size: clamp(150px,25vw,280px); line-height: 1; pointer-events: none;
+  text-shadow: 0 2px 0 rgba(255,255,255,.025);
+}
+.ro-hero::after {
+  content: ""; position: absolute; width: 260px; height: 260px; right: 9%; top: 50%;
+  transform: translateY(-50%); border: 1px solid rgba(245,213,142,.16);
+  border-radius: 50%; box-shadow: 0 0 0 18px rgba(245,213,142,.025), 0 0 0 38px rgba(245,213,142,.018);
+  pointer-events: none;
+}
+.ro-hero > * { position: relative; z-index: 1; }
+.ro-hero .ro-kicker::before { content: "✦"; margin-right: 9px; color: #ffe3a6; }
+.ro-hero h1 { text-shadow: 0 3px 18px rgba(0,0,0,.32); }
+.ro-button { box-shadow: 0 5px 15px rgba(0,0,0,.18); transition: transform .18s ease, filter .18s ease; }
+.ro-button:hover { transform: translateY(-2px); filter: brightness(1.08); }
+.ro-button.secondary:hover { background: rgba(232,189,103,.12); }
+.ro-grid { align-items: stretch; }
+.ro-card { position: relative; overflow: hidden; transition: transform .2s ease, border-color .2s ease, background .2s ease; }
+.ro-card::after { content: ""; position: absolute; width: 90px; height: 90px; right: -34px; bottom: -42px; border: 1px solid rgba(232,189,103,.15); border-radius: 50%; }
+.ro-card:hover { transform: translateY(-3px); border-color: rgba(232,189,103,.58); background: linear-gradient(145deg,#203554,#14213a); }
+.ro-card .ro-icon { font-size: 25px; text-shadow: 0 0 18px rgba(232,189,103,.2); }
+.ro-section-title { display: flex; align-items: center; gap: 10px; }
+.ro-section-title::after { content: ""; height: 1px; flex: 1; background: linear-gradient(90deg,rgba(232,189,103,.42),transparent); }
+.ro-note { line-height: 1.65; }
+.ro-news { box-shadow: 0 8px 22px rgba(0,0,0,.12); }
+#loginbox { box-shadow: 0 8px 24px rgba(0,0,0,.16); }
+#sidebar th.menuitem strong, #admin_sidebar th.menuitem strong { font-size: 11px; }
+#sidebar td.menuitem a, #admin_sidebar td.menuitem a { display: block; }
+@media (max-width: 760px) {
+  .ro-hero::before { right: -2%; top: 22%; font-size: 145px; }
+  .ro-hero::after { width: 130px; height: 130px; right: 3%; top: 24%; }
+  .ro-hero h1, .ro-hero p { max-width: 92%; }
+  .ro-actions { flex-direction: column; align-items: stretch; }
+  .ro-button { text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ro-button, .ro-card { transition: none; }
+  .ro-button:hover, .ro-card:hover { transform: none; }
+}
