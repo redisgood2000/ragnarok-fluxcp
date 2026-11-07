@@ -4,7 +4,6 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends git unzip libpng-dev libjpeg62-turbo-dev libfreetype6-dev \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j"$(nproc)" pdo_mysql mysqli gd \
-    # Ensure Apache loads exactly one MPM; the PHP Apache image uses prefork. \
     && (a2dismod mpm_event mpm_worker mpm_prefork >/dev/null 2>&1 || true) \
     && a2enmod mpm_prefork rewrite headers \
     && apache2ctl -M | grep -q 'mpm_prefork_module' \
