@@ -9,11 +9,16 @@ RUN apt-get update \
     && test "$(apache2ctl -M 2>/dev/null | grep -Ec 'mpm_(event|worker|prefork)_module')" -eq 1 \
     && rm -rf /var/lib/apt/lists/*
 
-# Pull the maintained upstream control panel; this repository contains only
-# the Railway deployment layer and environment-specific configuration.
+# Pull the maintained upstream control panel; custom files below are a small,
+# version-independent presentation overlay and do not replace FluxCP modules.
 RUN git clone --depth 1 --branch master https://github.com/rathena/FluxCP.git /var/www/html
 
 COPY config/import/ /var/www/html/config/import/
+COPY website/ /tmp/fluxcp-website/
+RUN cat /tmp/fluxcp-website/fluxcp-overrides.css >> /var/www/html/themes/default/css/flux.css \
+    && cp /tmp/fluxcp-website/main-index.php /var/www/html/themes/default/main/index.php \
+    && rm -rf /tmp/fluxcp-website
+
 COPY docker/entrypoint.sh /usr/local/bin/fluxcp-entrypoint
 
 RUN chmod +x /usr/local/bin/fluxcp-entrypoint \
