@@ -21,7 +21,7 @@ COPY website/ /tmp/fluxcp-website/
 RUN for theme in default bootstrap; do \
       if [ -f "/var/www/html/themes/$theme/header.php" ] && [ -f "/var/www/html/themes/$theme/css/flux.css" ]; then \
         cp /tmp/fluxcp-website/fluxcp-overrides.css "/var/www/html/themes/$theme/css/ro-custom.css"; \
-        php -r '$p=$argv[1]; $s=file_get_contents($p); $q=chr(34); $link = "        <link rel=".$q."stylesheet".$q." href=".$q."<?php echo \$this->themePath(".chr(39)."css/ro-custom.css".chr(39).") ?>?v=20261108".$q." type=".$q."text/css".$q." media=".$q."screen".$q." />\n"; if (strpos($s, "ro-custom.css") === false) { $s=str_replace("</head>", $link."</head>", $s); file_put_contents($p, $s); }' "/var/www/html/themes/$theme/header.php"; \
+        php -r '$p=$argv[1]; $s=file_get_contents($p); $q=chr(34); $link = "        <link rel=".$q."stylesheet".$q." href=".$q."<?php echo \$this->themePath(".chr(39)."css/ro-custom.css".chr(39).") ?>?v=20261108-2".$q." type=".$q."text/css".$q." media=".$q."screen".$q." />\n"; if (strpos($s, "ro-custom.css") === false) { $s=str_replace("</head>", $link."</head>", $s); file_put_contents($p, $s); }' "/var/www/html/themes/$theme/header.php"; \
       fi; \
     done \
     && cp /tmp/fluxcp-website/main-index.php /var/www/html/themes/default/main/index.php \
