@@ -15,14 +15,15 @@ RUN git clone --depth 1 --branch master https://github.com/rathena/FluxCP.git /v
 
 COPY config/import/ /var/www/html/config/import/
 COPY website/ /tmp/fluxcp-website/
-# Apply the presentation overlay to both bundled themes. The live FluxCP
-# configuration currently selects Bootstrap, not Default.
+# Bootstrap inherits page templates from Default, but has its own stylesheet.
+# Patch every theme stylesheet independently, and replace the inherited Default
+# homepage once so both themes render the same custom landing page.
 RUN for theme in default bootstrap; do \
-      if [ -f "/var/www/html/themes/$theme/css/flux.css" ] && [ -d "/var/www/html/themes/$theme/main" ]; then \
+      if [ -f "/var/www/html/themes/$theme/css/flux.css" ]; then \
         cat /tmp/fluxcp-website/fluxcp-overrides.css >> "/var/www/html/themes/$theme/css/flux.css"; \
-        cp /tmp/fluxcp-website/main-index.php "/var/www/html/themes/$theme/main/index.php"; \
       fi; \
     done \
+    && cp /tmp/fluxcp-website/main-index.php /var/www/html/themes/default/main/index.php \
     && rm -rf /tmp/fluxcp-website
 
 COPY docker/entrypoint.sh /usr/local/bin/fluxcp-entrypoint
