@@ -1,0 +1,108 @@
+/* Ragnarok Online custom presentation layer — keeps FluxCP module styles intact. */
+:root {
+  --ro-ink: #0b1020;
+  --ro-panel: #121c32;
+  --ro-panel-2: #182642;
+  --ro-gold: #e8bd67;
+  --ro-gold-bright: #ffd98a;
+  --ro-text: #edf2fb;
+  --ro-muted: #a9b7cd;
+}
+html { background: var(--ro-ink); }
+body {
+  margin: 0;
+  padding: 0 0 32px;
+  color: var(--ro-text);
+  background:
+    radial-gradient(ellipse at 50% -15%, rgba(72,105,153,.35), transparent 55%),
+    linear-gradient(180deg, #0d1629 0%, #080d18 100%);
+  font: 14px/1.6 "Trebuchet MS", Arial, sans-serif;
+}
+body > table { width: min(1180px, 96%) !important; margin: 0 auto; border-collapse: separate; border-spacing: 0; }
+body > table > tbody > tr:first-child td[bgcolor="#8ebceb"] {
+  background: linear-gradient(115deg, #111b30, #1c2b47 58%, #111b30) !important;
+  border-bottom: 1px solid rgba(232,189,103,.45);
+}
+body > table > tbody > tr:first-child td { padding-top: 18px; padding-bottom: 18px; }
+#logo { max-width: 100%; height: auto; filter: drop-shadow(0 5px 16px rgba(0,0,0,.4)); }
+#sidebar, #admin_sidebar { width: 100%; border-collapse: separate; border-spacing: 0 5px; }
+#sidebar th.menuitem, #admin_sidebar th.menuitem {
+  background: #202f4c !important; border-color: #202f4c !important;
+  border-radius: 8px 8px 0 0; padding-top: 5px;
+}
+#sidebar th.menuitem strong, #admin_sidebar th.menuitem strong {
+  color: var(--ro-gold-bright); border-bottom-color: rgba(232,189,103,.25);
+  letter-spacing: .12em; text-transform: uppercase;
+}
+#sidebar td.menuitem, #admin_sidebar td.menuitem {
+  background: #14213a !important; border-color: #14213a !important;
+}
+#sidebar td.menuitem a, #admin_sidebar td.menuitem a {
+  color: #dce6f7; background: #14213a !important; padding: 7px 8px 7px 18px;
+  text-shadow: none; border-left: 2px solid transparent; transition: .18s ease;
+}
+#sidebar td.menuitem a:hover, #admin_sidebar td.menuitem a:hover {
+  color: var(--ro-gold-bright); background: #203252 !important; border-left-color: var(--ro-gold);
+}
+#loginbox { color: var(--ro-text); padding: 12px 15px; background: rgba(18,28,50,.92); border: 1px solid rgba(232,189,103,.2); border-radius: 10px; }
+#loginbox a, #content a { color: var(--ro-gold-bright); }
+#content { color: var(--ro-text); }
+#content td[bgcolor="#f5f5f5"] { background: #101a2d !important; }
+#content > tbody > tr:first-child img, #content > tbody > tr:last-child img { opacity: .25; }
+#content h2 { color: var(--ro-gold-bright); letter-spacing: .01em; font-size: 25px; }
+#content h3 { color: var(--ro-gold); border-bottom-color: rgba(232,189,103,.25); }
+#content p { color: #d7e0ef; }
+#content .horizontal-table, #content .vertical-table, #server_status {
+  color: var(--ro-text); background: #14213a; border-color: #2a3b59;
+}
+#content .horizontal-table th, #content .vertical-table th, #server_status th {
+  color: var(--ro-gold-bright); background: #1d2d4a; border-color: #2a3b59;
+}
+#content .horizontal-table td, #content .vertical-table td, #server_status td {
+  color: #e4ebf6; background: #14213a; border-color: #2a3b59;
+}
+#submenu, #pagemenu { color: var(--ro-muted); border-color: rgba(232,189,103,.2); }
+#pagemenu a { color: var(--ro-gold-bright); }
+input[type=text], input[type=password], input[type=file], textarea, select {
+  color: #edf2fb !important; background: #0d1729 !important; border: 1px solid #354766 !important; border-radius: 5px;
+}
+input[type=submit], input[type=button], button {
+  color: #1b2230; background: linear-gradient(180deg, #f5d58e, #d9a94f);
+  border: 1px solid #f4d28c; border-radius: 5px; padding: 7px 13px; font-weight: bold; cursor: pointer;
+}
+.message { color: #172033; background: #f1d28e; border-radius: 6px; }
+.notice { color: #e5efff; background: #1a3556; border: 1px solid #355a83; border-radius: 6px; }
+#copyright p, #info p { color: #77869d; }
+.ro-home { color: var(--ro-text); }
+.ro-hero {
+  position: relative; overflow: hidden; margin: 8px 0 22px; padding: clamp(26px,5vw,54px);
+  border: 1px solid rgba(232,189,103,.45); border-radius: 16px;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(232,189,103,.18), transparent 30%),
+    linear-gradient(125deg, rgba(29,48,78,.98), rgba(13,23,41,.98) 65%, rgba(42,34,31,.96));
+  box-shadow: 0 18px 50px rgba(0,0,0,.28);
+}
+.ro-kicker { color: var(--ro-gold); font-size: 11px; font-weight: bold; letter-spacing: .22em; text-transform: uppercase; }
+.ro-hero h1 { max-width: 680px; margin: 9px 0 12px; color: #fff1ce; font-size: clamp(30px,5vw,48px); line-height: 1.08; letter-spacing: -.03em; }
+.ro-hero p { max-width: 650px; color: #c7d4e7 !important; font-size: 16px; }
+.ro-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+.ro-button { display: inline-block; padding: 10px 17px; border: 1px solid var(--ro-gold); border-radius: 6px; color: #182237 !important; background: linear-gradient(180deg,#f5d995,#d7a84e); font-weight: bold; text-decoration: none !important; }
+.ro-button.secondary { color: #f1d28e !important; background: rgba(9,16,29,.4); }
+.ro-section-title { margin: 22px 0 12px; color: var(--ro-gold-bright); font-size: 19px; }
+.ro-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; margin: 12px 0 22px; }
+.ro-card { min-height: 105px; padding: 17px; border: 1px solid #2a3d5d; border-radius: 10px; background: linear-gradient(145deg,#192945,#111c30); }
+.ro-card .ro-icon { display: block; margin-bottom: 7px; color: var(--ro-gold); font-size: 22px; }
+.ro-card strong { display: block; color: #f6dfad; font-size: 15px; }
+.ro-card span { color: var(--ro-muted); font-size: 13px; }
+.ro-note { padding: 12px 15px; color: #b9c8dc; background: rgba(30,48,75,.55); border-left: 3px solid var(--ro-gold); border-radius: 4px; }
+.ro-news { margin: 12px 0; padding: 17px; border: 1px solid #2a3d5d; border-radius: 9px; background: #14213a; }
+.ro-news h3 { margin-top: 0; }
+.ro-news small { color: #91a3bc; }
+.ro-news p { color: #dce5f2 !important; }
+@media (max-width: 760px) {
+  body > table { width: 100% !important; }
+  body > table > tbody > tr:nth-child(3) > td:nth-child(2) { width: 150px !important; }
+  .ro-grid { grid-template-columns: 1fr; }
+  .ro-hero { padding: 24px 19px; }
+  #loginbox { font-size: 12px; }
+}
