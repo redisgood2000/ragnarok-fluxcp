@@ -152,3 +152,150 @@ body > table { position: relative; }
   .ro-button, .ro-card { transition: none; }
   .ro-button:hover, .ro-card:hover { transform: none; }
 }
+
+
+/* Bootstrap theme: its layout is a fixed navbar and .container, not the
+   legacy table/sidebar layout above. Keep the same Rune Midgard palette. */
+html, body {
+  min-height: 100%;
+  background-color: #0b1020 !important;
+  color: #edf2fb !important;
+}
+body {
+  padding-top: 70px !important;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(72,105,153,.30), transparent 55%),
+    linear-gradient(180deg, #0d1629 0%, #080d18 100%) fixed !important;
+  font-family: "Trebuchet MS", Arial, sans-serif !important;
+}
+body > .navbar.navbar-inverse,
+.navbar.navbar-inverse {
+  background: linear-gradient(100deg, #0b1426, #1b2b48 55%, #0b1426) !important;
+  border: 0 !important;
+  border-bottom: 1px solid rgba(232,189,103,.55) !important;
+  box-shadow: 0 8px 28px rgba(0,0,0,.28) !important;
+}
+.navbar-inverse .navbar-brand {
+  color: #ffe1a0 !important;
+  font-family: Georgia, serif;
+  font-weight: bold;
+  letter-spacing: .04em;
+}
+.navbar-inverse .navbar-nav > li > a {
+  color: #dce6f7 !important;
+  transition: color .18s ease, background .18s ease;
+}
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+  color: #ffe1a0 !important;
+  background: rgba(232,189,103,.12) !important;
+}
+.navbar-inverse .navbar-toggle {
+  border-color: rgba(232,189,103,.45) !important;
+}
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+  background-color: #263957 !important;
+}
+.dropdown-menu {
+  background: #14213a !important;
+  border: 1px solid rgba(232,189,103,.28) !important;
+}
+.dropdown-menu > li > a {
+  color: #dce6f7 !important;
+  padding: 8px 18px;
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  color: #ffe1a0 !important;
+  background: #263957 !important;
+}
+.container {
+  color: #edf2fb;
+}
+.container a:not(.btn):not(.ro-button) {
+  color: #f0cb7e;
+}
+.container h1, .container h2, .container h3,
+.container h4, .container h5 {
+  color: #f4d99e;
+}
+.container .page-header {
+  border-bottom-color: rgba(232,189,103,.28);
+}
+.container .panel,
+.container .well,
+.container .list-group-item {
+  color: #e5edf9 !important;
+  background: linear-gradient(145deg,#192945,#111c30) !important;
+  border: 1px solid #2a3d5d !important;
+  border-radius: 9px;
+}
+.container .panel-heading {
+  color: #ffe1a0 !important;
+  background: #1d2d4a !important;
+  border-color: #2a3d5d !important;
+}
+.container .table,
+.container .table > thead > tr > th,
+.container .table > tbody > tr > td {
+  color: #e5edf9;
+  background: #14213a;
+  border-color: #2a3d5d;
+}
+.container .table > thead > tr > th {
+  color: #ffe1a0;
+  background: #1d2d4a;
+}
+.container .form-control,
+.container input[type=text],
+.container input[type=password],
+.container input[type=email],
+.container select,
+.container textarea {
+  color: #edf2fb !important;
+  background: #0d1729 !important;
+  border: 1px solid #354766 !important;
+  border-radius: 5px;
+}
+.container .btn-primary,
+.container input[type=submit],
+.container button[type=submit] {
+  color: #1b2230 !important;
+  background: linear-gradient(180deg,#f5d995,#d7a84e) !important;
+  border: 1px solid #f4d28c !important;
+  font-weight: bold;
+}
+.container .breadcrumb {
+  color: #a9b7cd;
+  background: #14213a;
+  border: 1px solid #2a3d5d;
+}
+.container .breadcrumb > .active {
+  color: #c5d1e2;
+}
+.container .pagination > li > a,
+.container .pagination > li > span {
+  color: #f0cb7e;
+  background: #14213a;
+  border-color: #2a3d5d;
+}
+.container .pagination > .active > a,
+.container .pagination > .active > span {
+  color: #172033;
+  background: #e8bd67;
+  border-color: #e8bd67;
+}
+footer, .footer {
+  color: #8fa0b8;
+  border-top: 1px solid rgba(232,189,103,.18);
+}
+@media (max-width: 767px) {
+  body { padding-top: 60px !important; }
+  .navbar-fixed-top .navbar-collapse {
+    background: #101b30;
+    border-top: 1px solid rgba(232,189,103,.2);
+  }
+}
