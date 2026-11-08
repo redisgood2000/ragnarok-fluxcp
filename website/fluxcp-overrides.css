@@ -637,3 +637,106 @@ body {
   .ro-button { padding: 8px 10px !important; font-size: 12px !important; }
   .ro-card { min-height: 0 !important; }
 }
+
+
+/* ==========================================================
+   CUSTOM_THEME: standalone FluxCP shell (no Bootstrap layout)
+   ========================================================== */
+* { box-sizing: border-box; }
+body.ro-site {
+  min-height: 100vh !important; margin: 0 !important; padding: 0 0 0 !important;
+  color: #edf2fb !important; background: #080e1b !important;
+  font: 15px/1.65 "Trebuchet MS", Arial, sans-serif !important;
+}
+.ro-site a { color: #f2ce83; }
+.ro-site-header {
+  position: sticky; top: 0; z-index: 1000; display: flex; align-items: center;
+  justify-content: space-between; gap: 28px; width: 100%; min-height: 82px;
+  padding: 12px clamp(18px,5vw,76px);
+  background: rgba(8,15,29,.94); border-bottom: 1px solid rgba(232,189,103,.28);
+  box-shadow: 0 12px 32px rgba(0,0,0,.24); backdrop-filter: blur(18px);
+}
+.ro-brand { display:flex; align-items:center; gap:13px; color:#fff0c9 !important; text-decoration:none !important; min-width:0; }
+.ro-brand-mark { display:grid; place-items:center; width:44px; height:44px; flex:0 0 44px; border:1px solid rgba(232,189,103,.6); border-radius:14px; color:#ffe2a0; background:linear-gradient(145deg,#273a5b,#111d32); font-size:23px; box-shadow:0 0 24px rgba(232,189,103,.12); }
+.ro-brand strong { display:block; font:700 18px/1.2 Georgia,serif; letter-spacing:.035em; }
+.ro-brand small { display:block; margin-top:4px; color:#93a5c0; font-size:9px; letter-spacing:.2em; }
+.ro-main-nav { display:flex; align-items:center; justify-content:flex-end; gap:8px; }
+.ro-main-nav > a, .ro-nav-group > summary {
+  display:flex; align-items:center; gap:9px; padding:10px 15px; border:1px solid transparent;
+  border-radius:999px; color:#dce6f7 !important; font-size:12px; font-weight:700;
+  letter-spacing:.035em; text-decoration:none !important; list-style:none; cursor:pointer;
+}
+.ro-nav-group > summary::-webkit-details-marker { display:none; }
+.ro-main-nav > a:hover, .ro-nav-group[open] > summary, .ro-nav-group > summary:hover {
+  color:#ffe1a0 !important; background:rgba(232,189,103,.10); border-color:rgba(232,189,103,.2);
+}
+.ro-nav-group { position:relative; }
+.ro-nav-group > summary span { color:#e8bd67; font-size:15px; }
+.ro-nav-dropdown {
+  position:absolute; top:calc(100% + 10px); left:0; min-width:210px; padding:8px;
+  border:1px solid rgba(232,189,103,.28); border-radius:14px;
+  background:#111d32; box-shadow:0 18px 45px rgba(0,0,0,.45);
+}
+.ro-nav-dropdown a { display:block; padding:10px 12px; border-radius:8px; color:#dce6f7 !important; text-decoration:none !important; font-size:13px; }
+.ro-nav-dropdown a:hover { color:#ffe1a0 !important; background:#203250; }
+.ro-menu-toggle { display:none; }
+.ro-shell { width:min(1240px, calc(100% - 48px)); min-height:65vh; margin:0 auto; padding:26px 0 72px; color:#edf2fb; }
+.ro-page-topline { display:flex; align-items:center; justify-content:space-between; gap:16px; margin:0 0 18px; color:#9cacc4; font-size:9px; font-weight:700; letter-spacing:.16em; }
+.ro-site-state { color:#d5bd85; letter-spacing:.08em; }
+.ro-shell #submenu, .ro-shell #pagemenu { margin:0 0 16px; padding:9px 13px; color:#9eafc8; background:#111d32; border:1px solid #263754; border-radius:9px; font-size:12px; }
+.ro-shell #submenu a, .ro-shell #pagemenu a { color:#f0ce88 !important; }
+.ro-shell .message { padding:13px 16px; color:#172033; background:#f2d28c; border:0; border-radius:10px; }
+.ro-shell .notice { padding:13px 16px; color:#dbeaff; background:#152b49; border:1px solid #355a83; border-radius:10px; }
+.ro-home { width:100%; }
+.ro-hero { margin-top:0; }
+.ro-site-footer { border-top:1px solid rgba(232,189,103,.2); background:#070c16; }
+.ro-footer-inner { display:flex; align-items:center; justify-content:space-between; gap:24px; width:min(1240px,calc(100% - 48px)); margin:0 auto; padding:28px 0; }
+.ro-footer-inner strong { color:#f5d995; font:700 17px Georgia,serif; }
+.ro-footer-inner p { margin:5px 0 0; color:#8798b1; font-size:12px; }
+.ro-footer-tools { display:flex; flex-wrap:wrap; align-items:center; justify-content:flex-end; gap:16px; color:#8293ac; font-size:11px; }
+.ro-footer-tools a { color:#f0ce88 !important; }
+.ro-footer-tools label { display:flex; align-items:center; gap:8px; }
+.ro-footer-tools select { max-width:150px; padding:6px 9px; color:#edf2fb !important; background:#111d32 !important; border:1px solid #354766 !important; border-radius:7px; }
+.ro-shell h1,.ro-shell h2,.ro-shell h3,.ro-shell h4 { color:#f4d99e; }
+.ro-shell .horizontal-table,.ro-shell .vertical-table,.ro-shell .generic-form-table,.ro-shell #server_status { width:100%; color:#e5edf9; background:#111d32; border:1px solid #2a3d5d; border-collapse:collapse; border-radius:10px; overflow:hidden; }
+.ro-shell .horizontal-table th,.ro-shell .vertical-table th,.ro-shell .generic-form-table th,.ro-shell #server_status th { padding:11px 13px; color:#ffe1a0; background:#1c2d49; border:1px solid #2a3d5d; }
+.ro-shell .horizontal-table td,.ro-shell .vertical-table td,.ro-shell .generic-form-table td,.ro-shell #server_status td { padding:10px 13px; color:#e5edf9; background:#111d32; border:1px solid #2a3d5d; }
+.ro-shell input[type=text],.ro-shell input[type=password],.ro-shell input[type=email],.ro-shell input[type=file],.ro-shell textarea,.ro-shell select { max-width:100%; padding:9px 11px; color:#edf2fb !important; background:#0a1425 !important; border:1px solid #354766 !important; border-radius:7px; }
+.ro-shell input[type=submit],.ro-shell input[type=button],.ro-shell button,.ro-shell .submit_button { padding:9px 15px; color:#172033; background:linear-gradient(180deg,#f5d995,#d7a84e); border:1px solid #f4d28c; border-radius:7px; font-weight:700; cursor:pointer; }
+.ro-shell .pages { margin-top:20px; padding:15px; color:#9eafc8; border-top:1px solid #2a3d5d; }
+.ro-shell .pages a { color:#f0ce88; }
+@media(max-width:900px) {
+  .ro-site-header { min-height:70px; padding:10px 18px; }
+  .ro-menu-toggle { display:flex; align-items:center; gap:4px; flex-direction:column; padding:9px 11px; color:#f5d995; background:#14213a; border:1px solid rgba(232,189,103,.45); border-radius:10px; }
+  .ro-menu-toggle i { display:block; width:18px; height:2px; background:#f5d995; }
+  .ro-menu-toggle b { margin-top:2px; font-size:8px; letter-spacing:.12em; }
+  .ro-main-nav { display:none; position:absolute; top:calc(100% + 1px); left:0; right:0; align-items:stretch; flex-direction:column; gap:4px; padding:12px 18px 18px; background:#0b1426; border-bottom:1px solid rgba(232,189,103,.28); }
+  .ro-main-nav.is-open { display:flex; }
+  .ro-main-nav > a,.ro-nav-group > summary { justify-content:space-between; border-radius:9px; }
+  .ro-nav-dropdown { position:static; margin:4px 8px 8px; box-shadow:none; }
+  .ro-nav-group[open] .ro-nav-dropdown { display:block; }
+  .ro-shell { width:calc(100% - 32px); padding-top:18px; }
+  .ro-page-topline { align-items:flex-start; flex-direction:column; gap:5px; }
+  .ro-footer-inner { width:calc(100% - 32px); align-items:flex-start; flex-direction:column; }
+  .ro-footer-tools { justify-content:flex-start; }
+}
+@media(max-width:559px) {
+  .ro-brand strong { font-size:15px; }
+  .ro-brand-mark { width:38px; height:38px; flex-basis:38px; }
+  .ro-shell { width:calc(100% - 24px); }
+  .ro-angel-hero { grid-template-columns:minmax(0,1fr) minmax(0,.88fr) !important; min-height:0 !important; padding:18px 12px !important; }
+  .ro-hero-copy { text-align:left !important; }
+  .ro-hero-copy h1 { font-size:clamp(20px,5vw,29px) !important; }
+  .ro-hero-copy p { font-size:12px !important; }
+  .ro-angelring-stage { min-height:165px !important; }
+  .ro-angelring { width:100% !important; }
+  .ro-angel-hero::after { width:145px !important; height:145px !important; right:4% !important; }
+  .ro-hero-copy .ro-actions { flex-direction:column !important; align-items:stretch !important; }
+  .ro-button { padding:7px 8px !important; font-size:10px !important; }
+  .ro-grid { grid-template-columns:repeat(3,minmax(0,1fr)) !important; gap:6px !important; }
+  .ro-card { padding:9px 7px !important; }
+  .ro-card strong { font-size:11px !important; }
+  .ro-card span { font-size:10px !important; }
+  .ro-card .ro-icon { font-size:17px !important; }
+  .ro-footer-tools { flex-direction:column; align-items:flex-start; }
+}
