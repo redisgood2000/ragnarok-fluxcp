@@ -24,6 +24,8 @@ RUN mkdir -p /var/www/html/themes/custom_theme \
     && cp /tmp/fluxcp-website/fluxcp-overrides.css /var/www/html/themes/custom_theme/css/ro-custom.css \
     && php -r '$p=$argv[1]; $s=file_get_contents($p); $q=chr(34); $link = "        <link rel=".$q."stylesheet".$q." href=".$q."<?php echo \$this->themePath(".chr(39)."css/ro-custom.css".chr(39).") ?>?v=20261108-custom-theme-1".$q." type=".$q."text/css".$q." media=".$q."screen".$q." />\n"; if (strpos($s, "ro-custom.css") === false) { $s=str_replace("</head>", $link."</head>", $s); file_put_contents($p, $s); }' /var/www/html/themes/custom_theme/header.php \
     && cp /tmp/fluxcp-website/main-index.php /var/www/html/themes/custom_theme/main/index.php \
+    && cp /tmp/fluxcp-website/custom_theme_header.php /var/www/html/themes/custom_theme/header.php \
+    && cp /tmp/fluxcp-website/custom_theme_footer.php /var/www/html/themes/custom_theme/footer.php \
     && rm -rf /tmp/fluxcp-website
 COPY docker/entrypoint.sh /usr/local/bin/fluxcp-entrypoint
 
