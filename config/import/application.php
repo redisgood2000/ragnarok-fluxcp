@@ -12,7 +12,7 @@ return array(
     'InstallerPassword'   => $installerPassword,
     'RequireOwnership'    => false,
     'SiteTitle'           => getenv('CP_SITE_TITLE') ?: 'Ragnarok Online',
-    'ThemeName'           => array('default', 'bootstrap', 'custom_theme'),
+    'ThemeName'           => array('custom_theme'),
     'DefaultLanguage'     => 'en_us',
     'DateDefaultTimezone' => 'Asia/Manila',
     'DebugMode'           => false,
