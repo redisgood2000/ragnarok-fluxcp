@@ -370,3 +370,126 @@ footer, .footer {
   .ro-angelring, .ro-angelring-aura, .ro-angelring .angel-halo,
   .ro-angelring .angel-wings, .ro-angelring .angel-sparkles { animation: none !important; }
 }
+
+
+/* Floating Rune Midgard navigation — replaces the full-width top header. */
+@media (min-width: 768px) {
+  body { padding-top: 22px !important; }
+  .navbar.navbar-inverse.navbar-fixed-top {
+    position: fixed !important;
+    top: 18px !important;
+    right: 22px !important;
+    left: auto !important;
+    width: max-content !important;
+    max-width: calc(100vw - 44px) !important;
+    min-height: 0 !important;
+    border: 1px solid rgba(232,189,103,.62) !important;
+    border-radius: 999px !important;
+    background: rgba(11,20,38,.90) !important;
+    box-shadow: 0 12px 36px rgba(0,0,0,.38), inset 0 1px rgba(255,255,255,.06) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+  .navbar.navbar-inverse .container {
+    display: flex !important;
+    width: auto !important;
+    min-width: 0 !important;
+    padding: 0 12px !important;
+  }
+  .navbar.navbar-inverse .navbar-header,
+  .navbar.navbar-inverse .navbar-brand { display: none !important; }
+  .navbar.navbar-inverse .navbar-collapse {
+    display: block !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+  .navbar.navbar-inverse .navbar-nav {
+    display: flex !important;
+    float: none !important;
+    align-items: center !important;
+    gap: 3px;
+    margin: 0 !important;
+  }
+  .navbar.navbar-inverse .navbar-nav > li { float: none !important; }
+  .navbar.navbar-inverse .navbar-nav > li > a {
+    padding: 12px 13px !important;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .025em;
+  }
+  .navbar.navbar-inverse .navbar-nav > li > a:hover,
+  .navbar.navbar-inverse .navbar-nav > .open > a {
+    background: rgba(232,189,103,.15) !important;
+  }
+  .navbar.navbar-inverse .dropdown-menu {
+    margin-top: 9px !important;
+    border-radius: 12px !important;
+    box-shadow: 0 14px 32px rgba(0,0,0,.35);
+  }
+}
+@media (max-width: 767px) {
+  body { padding-top: 18px !important; }
+  .navbar.navbar-inverse.navbar-fixed-top {
+    top: 12px !important;
+    right: 12px !important;
+    left: auto !important;
+    width: auto !important;
+    max-width: calc(100vw - 24px) !important;
+    min-height: 0 !important;
+    border: 1px solid rgba(232,189,103,.65) !important;
+    border-radius: 18px !important;
+    background: rgba(11,20,38,.94) !important;
+    box-shadow: 0 12px 32px rgba(0,0,0,.4) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+  .navbar.navbar-inverse .container {
+    width: auto !important;
+    padding: 0 8px !important;
+  }
+  .navbar.navbar-inverse .navbar-header {
+    display: block !important;
+    min-height: 42px;
+  }
+  .navbar.navbar-inverse .navbar-brand { display: none !important; }
+  .navbar.navbar-inverse .navbar-toggle {
+    display: block !important;
+    float: right !important;
+    margin: 6px 0 !important;
+    padding: 7px 9px !important;
+    border: 1px solid rgba(232,189,103,.5) !important;
+    border-radius: 10px !important;
+    background: rgba(232,189,103,.10) !important;
+  }
+  .navbar.navbar-inverse .navbar-toggle .icon-bar { background: #ffe1a0 !important; }
+  .navbar.navbar-inverse .navbar-collapse {
+    max-height: min(70vh, 520px) !important;
+    overflow-y: auto !important;
+    border-top: 1px solid rgba(232,189,103,.2) !important;
+    background: transparent !important;
+  }
+  .navbar.navbar-inverse .navbar-nav {
+    margin: 7px 0 9px !important;
+  }
+  .navbar.navbar-inverse .navbar-nav > li > a {
+    padding: 10px 14px !important;
+    border-radius: 9px;
+    color: #e6edf8 !important;
+  }
+  .navbar.navbar-inverse .navbar-nav > li > a:hover {
+    background: rgba(232,189,103,.13) !important;
+    color: #ffe1a0 !important;
+  }
+  .navbar.navbar-inverse .dropdown-menu {
+    float: none !important;
+    position: static !important;
+    width: auto !important;
+    margin: 0 8px 8px !important;
+    border-radius: 10px !important;
+    box-shadow: none !important;
+  }
+}
