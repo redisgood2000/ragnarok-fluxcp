@@ -16,17 +16,15 @@ RUN git clone --depth 1 --branch master https://github.com/rathena/FluxCP.git /v
 COPY config/import/ /var/www/html/config/import/
 COPY website/ /tmp/fluxcp-website/
 
-# Install a dedicated, cache-busted stylesheet in both supported themes.
-# Loading it at the end of <head> ensures it wins over theme and Bootstrap rules.
-RUN for theme in default bootstrap; do \
-      if [ -f "/var/www/html/themes/$theme/header.php" ] && [ -f "/var/www/html/themes/$theme/css/flux.css" ]; then \
-        cp /tmp/fluxcp-website/fluxcp-overrides.css "/var/www/html/themes/$theme/css/ro-custom.css"; \
-        php -r '$p=$argv[1]; $s=file_get_contents($p); $q=chr(34); $link = "        <link rel=".$q."stylesheet".$q." href=".$q."<?php echo \$this->themePath(".chr(39)."css/ro-custom.css".chr(39).") ?>?v=20261108-floating-menu-1".$q." type=".$q."text/css".$q." media=".$q."screen".$q." />\n"; if (strpos($s, "ro-custom.css") === false) { $s=str_replace("</head>", $link."</head>", $s); file_put_contents($p, $s); }' "/var/www/html/themes/$theme/header.php"; \
-      fi; \
-    done \
-    && cp /tmp/fluxcp-website/main-index.php /var/www/html/themes/default/main/index.php \
+# Create an independent third theme by cloning the upstream Bootstrap theme.
+# The original default and bootstrap themes remain untouched.
+RUN mkdir -p /var/www/html/themes/custom_theme \
+    && cp -a /var/www/html/themes/bootstrap/. /var/www/html/themes/custom_theme/ \
+    && mkdir -p /var/www/html/themes/custom_theme/css /var/www/html/themes/custom_theme/main \
+    && cp /tmp/fluxcp-website/fluxcp-overrides.css /var/www/html/themes/custom_theme/css/ro-custom.css \
+    && php -r '$p=$argv[1]; $s=file_get_contents($p); $q=chr(34); $link = "        <link rel=".$q."stylesheet".$q." href=".$q."<?php echo \\$this->themePath(".chr(39)."css/ro-custom.css".chr(39).") ?>?v=20261108-custom-theme-1".$q." type=".$q."text/css".$q." media=".$q."screen".$q." />\\n"; if (strpos($s, "ro-custom.css") === false) { $s=str_replace("</head>", $link."</head>", $s); file_put_contents($p, $s); }' /var/www/html/themes/custom_theme/header.php \
+    && cp /tmp/fluxcp-website/main-index.php /var/www/html/themes/custom_theme/main/index.php \
     && rm -rf /tmp/fluxcp-website
-
 COPY docker/entrypoint.sh /usr/local/bin/fluxcp-entrypoint
 
 RUN chmod +x /usr/local/bin/fluxcp-entrypoint \
