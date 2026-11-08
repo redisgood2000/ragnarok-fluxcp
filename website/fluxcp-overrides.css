@@ -740,3 +740,35 @@ body.ro-site {
   .ro-card .ro-icon { font-size:17px !important; }
   .ro-footer-tools { flex-direction:column; align-items:flex-start; }
 }
+
+/* Center the language selector on the bottom edge of the site footer. */
+.ro-footer-language {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  width:100%;
+  padding:0 16px 24px;
+  color:#9eafc8;
+  font-size:12px;
+  text-align:center;
+}
+.ro-footer-language label { margin:0; color:#aebbd0; font-weight:600; }
+.ro-footer-language select {
+  min-width:130px;
+  padding:7px 11px;
+  color:#edf2fb !important;
+  background:#111d32 !important;
+  border:1px solid rgba(232,189,103,.42) !important;
+  border-radius:8px;
+  cursor:pointer;
+}
+@media(max-width:900px) {
+  .ro-footer-inner { flex-direction:row; align-items:center; }
+  .ro-footer-tools { justify-content:flex-end; }
+}
+@media(max-width:559px) {
+  .ro-footer-inner { flex-direction:column; align-items:center; text-align:center; }
+  .ro-footer-tools { align-items:center; }
+  .ro-footer-language { padding-bottom:20px; }
+}
