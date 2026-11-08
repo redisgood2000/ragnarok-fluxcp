@@ -784,8 +784,8 @@ body.ro-site {
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:9px;
-  padding:8px 12px 8px 15px;
+  gap:0;
+  padding:8px 12px;
   max-width:calc(100vw - 24px);
   border:1px solid rgba(232,189,103,.58);
   border-radius:999px;
@@ -794,14 +794,6 @@ body.ro-site {
   box-shadow:0 10px 32px rgba(0,0,0,.42), inset 0 1px rgba(255,255,255,.06);
   backdrop-filter:blur(16px);
   -webkit-backdrop-filter:blur(16px);
-}
-.ro-language-label {
-  margin:0;
-  color:#e8bd67;
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:.12em;
-  text-transform:uppercase;
 }
 .ro-floating-language select {
   min-width:112px;
@@ -816,7 +808,6 @@ body.ro-site {
 }
 body.ro-site { padding-bottom:76px !important; }
 @media(max-width:559px) {
-  .ro-floating-language { bottom:12px; padding:7px 10px 7px 12px; }
-  .ro-language-label { font-size:9px; }
+  .ro-floating-language { bottom:12px; padding:7px 10px; }
   .ro-floating-language select { min-width:100px; font-size:11px; }
 }
