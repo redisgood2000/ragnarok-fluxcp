@@ -1,9 +1,21 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
-</main><footer class="ro-site-footer"><div class="ro-footer-inner">
-<div><strong><?php echo htmlspecialchars(Flux::config('SiteTitle')) ?></strong><p>Your next adventure begins in Rune Midgard.</p></div>
-<div class="ro-footer-tools"><?php if(Flux::config('ShowCopyright')): ?><span>Powered by <a href="https://github.com/rathena/FluxCP" target="_blank" rel="noopener">FluxCP</a></span><?php endif ?>
-<?php if(Flux::config('ShowRenderDetails')): ?><span><?php echo round(microtime(true)-__START__,5) ?>s · <?php echo (int)Flux::$numberOfQueries ?> queries</span><?php endif ?>
-<label>Language <select onchange="updatePreferredLanguage(this)"><?php foreach(Flux::getAvailableLanguages() as $lang_key=>$lang): ?><option value="<?php echo htmlspecialchars($lang_key) ?>"<?php if(!empty($_COOKIE['language']) && $_COOKIE['language']==$lang_key) echo ' selected="selected"' ?>><?php echo htmlspecialchars($lang) ?></option><?php endforeach ?></select></label></div></div></footer>
+</main><footer class="ro-site-footer">
+<div class="ro-footer-inner">
+  <div><strong><?php echo htmlspecialchars(Flux::config('SiteTitle')) ?></strong><p>Your next adventure begins in Rune Midgard.</p></div>
+  <div class="ro-footer-tools">
+    <?php if(Flux::config('ShowCopyright')): ?><span>Powered by <a href="https://github.com/rathena/FluxCP" target="_blank" rel="noopener">FluxCP</a></span><?php endif ?>
+    <?php if(Flux::config('ShowRenderDetails')): ?><span><?php echo round(microtime(true)-__START__,5) ?>s · <?php echo (int)Flux::$numberOfQueries ?> queries</span><?php endif ?>
+  </div>
+</div>
+<div class="ro-footer-language">
+  <label for="ro-language-select">Language</label>
+  <select id="ro-language-select" onchange="updatePreferredLanguage(this)">
+    <?php foreach(Flux::getAvailableLanguages() as $lang_key=>$lang): ?>
+      <option value="<?php echo htmlspecialchars($lang_key) ?>"<?php if(!empty($_COOKIE['language']) && $_COOKIE['language']==$lang_key) echo ' selected="selected"' ?>><?php echo htmlspecialchars($lang) ?></option>
+    <?php endforeach ?>
+  </select>
+</div>
+</footer>
 <form action="<?php echo $this->urlWithQs ?>" method="post" name="preferred_theme_form" hidden><input type="hidden" name="preferred_theme" value=""></form>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><script>
 (function(){var b=document.getElementById('ro-menu-toggle'),n=document.getElementById('ro-main-nav');if(b&&n)b.addEventListener('click',function(){var o=n.classList.toggle('is-open');b.setAttribute('aria-expanded',o?'true':'false')});
