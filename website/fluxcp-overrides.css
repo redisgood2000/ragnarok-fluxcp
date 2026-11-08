@@ -813,3 +813,57 @@ body.ro-site { padding-bottom:76px !important; }
   .ro-floating-language { bottom:12px; padding:7px 10px; }
   .ro-floating-language select { min-width:100px; font-size:11px; }
 }
+
+
+/* Match the floating language selector to the custom navigation pills. */
+.ro-floating-language {
+  padding: 0 !important;
+  gap: 0 !important;
+  border: 1px solid rgba(232,189,103,.28) !important;
+  border-radius: 999px !important;
+  background: rgba(8,15,29,.94) !important;
+  box-shadow: 0 12px 32px rgba(0,0,0,.30), inset 0 1px rgba(255,255,255,.05) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+  overflow: hidden;
+}
+.ro-floating-language select {
+  appearance: none;
+  -webkit-appearance: none;
+  min-width: 126px !important;
+  max-width: min(190px, calc(100vw - 40px)) !important;
+  padding: 10px 34px 10px 15px !important;
+  border: 1px solid transparent !important;
+  border-radius: 999px !important;
+  outline: 0;
+  color: #dce6f7 !important;
+  background-color: transparent !important;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23e8bd67' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 13px center !important;
+  font: 700 12px/1.2 "Trebuchet MS", Arial, sans-serif !important;
+  letter-spacing: .035em;
+  cursor: pointer;
+}
+.ro-floating-language:hover,
+.ro-floating-language:focus-within {
+  border-color: rgba(232,189,103,.42) !important;
+  background: rgba(11,20,38,.97) !important;
+}
+.ro-floating-language select:hover,
+.ro-floating-language select:focus {
+  color: #ffe1a0 !important;
+  background-color: rgba(232,189,103,.10) !important;
+}
+.ro-floating-language select option {
+  color: #dce6f7;
+  background: #111d32;
+}
+@media(max-width:559px) {
+  .ro-floating-language { bottom: 12px; }
+  .ro-floating-language select {
+    min-width: 116px !important;
+    padding: 9px 32px 9px 13px !important;
+    font-size: 11px !important;
+  }
+}
