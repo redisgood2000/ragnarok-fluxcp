@@ -493,3 +493,147 @@ footer, .footer {
     box-shadow: none !important;
   }
 }
+
+
+/* Desktop-first presentation on every device, including phones.
+   Keep the desktop composition and scale it to the available viewport. */
+html { min-width: 0 !important; }
+body {
+  min-width: 0 !important;
+  overflow-x: hidden;
+}
+.ro-angel-hero {
+  grid-template-columns: minmax(0, 1fr) minmax(220px, .92fr) !important;
+  gap: 8px !important;
+  min-height: 390px !important;
+  padding: clamp(18px, 3.5vw, 48px) !important;
+}
+.ro-hero-copy { text-align: left !important; }
+.ro-hero-copy h1 { max-width: 560px !important; }
+.ro-hero-copy p { max-width: 540px !important; }
+.ro-hero-copy .ro-actions {
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+}
+.ro-button { text-align: center !important; }
+.ro-angelring-stage {
+  min-height: 300px !important;
+  margin-top: 0 !important;
+}
+.ro-angelring { width: min(100%, 430px) !important; }
+.ro-angel-hero::after {
+  width: 290px !important;
+  height: 290px !important;
+  right: 7% !important;
+  top: 48% !important;
+  bottom: auto !important;
+}
+.ro-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+}
+.ro-card { min-width: 0; padding: 13px !important; }
+.ro-card strong { font-size: 14px !important; }
+.ro-card span { font-size: 12px !important; }
+
+/* Preserve a desktop-style floating navigation capsule on touch screens.
+   The menu remains expandable when its links cannot fit horizontally. */
+.navbar.navbar-inverse.navbar-fixed-top {
+  position: fixed !important;
+  top: 10px !important;
+  right: 10px !important;
+  left: auto !important;
+  width: auto !important;
+  max-width: calc(100vw - 20px) !important;
+  min-height: 0 !important;
+  border: 1px solid rgba(232,189,103,.65) !important;
+  border-radius: 16px !important;
+  background: rgba(11,20,38,.95) !important;
+  box-shadow: 0 12px 32px rgba(0,0,0,.4) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.navbar.navbar-inverse .container {
+  width: auto !important;
+  max-width: none !important;
+  padding: 0 8px !important;
+}
+.navbar.navbar-inverse .navbar-header {
+  display: block !important;
+  min-height: 40px !important;
+}
+.navbar.navbar-inverse .navbar-brand { display: none !important; }
+.navbar.navbar-inverse .navbar-toggle {
+  display: block !important;
+  float: right !important;
+  margin: 5px 0 !important;
+  padding: 7px 9px !important;
+  border: 1px solid rgba(232,189,103,.5) !important;
+  border-radius: 10px !important;
+  background: rgba(232,189,103,.10) !important;
+}
+.navbar.navbar-inverse .navbar-toggle .icon-bar { background: #ffe1a0 !important; }
+.navbar.navbar-inverse .navbar-collapse {
+  max-height: min(70vh, 520px) !important;
+  overflow-y: auto !important;
+  border-top: 1px solid rgba(232,189,103,.2) !important;
+  background: transparent !important;
+}
+.navbar.navbar-inverse .navbar-nav { margin: 7px 0 9px !important; }
+.navbar.navbar-inverse .navbar-nav > li > a {
+  padding: 9px 13px !important;
+  border-radius: 9px !important;
+  white-space: nowrap;
+}
+.navbar.navbar-inverse .dropdown-menu {
+  float: none !important;
+  position: static !important;
+  width: auto !important;
+  margin: 0 8px 8px !important;
+  border-radius: 10px !important;
+  box-shadow: none !important;
+}
+
+/* On wider phones/tablets, show the desktop links inline if they fit. */
+@media (min-width: 560px) {
+  .navbar.navbar-inverse .navbar-header { display: none !important; }
+  .navbar.navbar-inverse .navbar-collapse {
+    display: block !important;
+    height: auto !important;
+    padding: 0 !important;
+    border: 0 !important;
+    overflow: visible !important;
+  }
+  .navbar.navbar-inverse .navbar-nav {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    gap: 2px !important;
+    margin: 0 !important;
+  }
+  .navbar.navbar-inverse .navbar-nav > li { float: none !important; }
+  .navbar.navbar-inverse .navbar-nav > li > a {
+    padding: 9px 10px !important;
+    font-size: 11px !important;
+  }
+}
+
+/* Keep compact desktop proportions on narrow screens without forcing a
+   wide fixed canvas that would make the site require horizontal scrolling. */
+@media (max-width: 559px) {
+  .ro-angel-hero { min-height: 0 !important; }
+  .ro-hero h1 { font-size: clamp(23px, 5vw, 34px) !important; }
+  .ro-hero p { font-size: 13px !important; line-height: 1.5 !important; }
+  .ro-angelring-stage { min-height: 210px !important; }
+  .ro-angelring { width: min(100%, 270px) !important; }
+  .ro-angel-hero::after {
+    width: 190px !important;
+    height: 190px !important;
+    right: calc(50% - 95px) !important;
+  }
+  .ro-actions { gap: 7px !important; }
+  .ro-button { padding: 8px 10px !important; font-size: 12px !important; }
+  .ro-card { min-height: 0 !important; }
+}
