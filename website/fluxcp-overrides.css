@@ -299,3 +299,74 @@ footer, .footer {
     border-top: 1px solid rgba(232,189,103,.2);
   }
 }
+
+
+/* Angeling centerpiece — custom inline mascot artwork in the homepage hero. */
+.ro-angel-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, .92fr);
+  align-items: center;
+  gap: 8px;
+  min-height: 420px;
+  padding: clamp(24px, 4vw, 48px);
+  background:
+    radial-gradient(ellipse at 72% 48%, rgba(255,158,215,.19), transparent 34%),
+    radial-gradient(ellipse at 22% 5%, rgba(232,189,103,.14), transparent 42%),
+    linear-gradient(125deg, #172844 0%, #0d172b 58%, #211d35 100%);
+}
+.ro-angel-hero::before { content: none; }
+.ro-angel-hero::after {
+  width: 330px; height: 330px; right: 9%; top: 48%;
+  border-color: rgba(255,220,239,.18);
+  box-shadow: 0 0 0 18px rgba(255,190,225,.035), 0 0 0 42px rgba(245,213,142,.025), 0 0 75px rgba(247,151,207,.12);
+}
+.ro-hero-copy { position: relative; z-index: 2; }
+.ro-hero-copy h1 { max-width: 520px; }
+.ro-hero-copy p { max-width: 520px; }
+.ro-angelring-stage {
+  position: relative; z-index: 2; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; min-width: 0;
+  min-height: 350px; isolation: isolate;
+}
+.ro-angelring-aura {
+  position: absolute; z-index: -1; width: min(82%, 340px); aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,190,226,.22), rgba(255,190,226,.07) 48%, transparent 72%);
+  filter: blur(8px);
+  animation: angelAura 4.5s ease-in-out infinite;
+}
+.ro-angelring {
+  display: block; width: min(100%, 470px); height: auto; overflow: visible;
+  filter: drop-shadow(0 18px 28px rgba(0,0,0,.26));
+  animation: angelFloat 4.2s ease-in-out infinite;
+}
+.ro-angelring .angel-halo { transform-origin: 260px 64px; animation: haloShimmer 3s ease-in-out infinite; }
+.ro-angelring .angel-wings { transform-origin: 260px 250px; animation: angelWings 3.8s ease-in-out infinite; }
+.ro-angelring .angel-sparkles { animation: sparkle 3.2s ease-in-out infinite; }
+.ro-angelring-caption {
+  margin-top: -5px; color: #f8d8ec; font-size: 11px; font-weight: bold;
+  letter-spacing: .2em; text-transform: uppercase; text-shadow: 0 2px 12px #080d18;
+}
+.ro-angelring-caption span { color: #f5d58e; padding: 0 5px; }
+.ro-hero-bottom-glow {
+  position: absolute; left: 8%; right: 8%; bottom: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,211,232,.5), rgba(232,189,103,.45), transparent);
+}
+@keyframes angelFloat { 0%,100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-12px) rotate(1deg); } }
+@keyframes angelAura { 0%,100% { opacity: .65; transform: scale(.94); } 50% { opacity: 1; transform: scale(1.06); } }
+@keyframes haloShimmer { 0%,100% { filter: brightness(1); } 50% { filter: brightness(1.28); } }
+@keyframes angelWings { 0%,100% { transform: scaleX(1) rotate(0); } 50% { transform: scaleX(1.035) rotate(-1deg); } }
+@keyframes sparkle { 0%,100% { opacity: .7; } 50% { opacity: 1; } }
+@media (max-width: 767px) {
+  .ro-angel-hero { grid-template-columns: 1fr; gap: 0; padding: 25px 18px 20px; }
+  .ro-hero-copy { text-align: center; }
+  .ro-hero-copy h1, .ro-hero-copy p { max-width: none; }
+  .ro-hero-copy .ro-actions { justify-content: center; }
+  .ro-angelring-stage { min-height: 280px; margin-top: 4px; }
+  .ro-angelring { width: min(100%, 350px); }
+  .ro-angel-hero::after { width: 220px; height: 220px; right: calc(50% - 110px); top: auto; bottom: 42px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ro-angelring, .ro-angelring-aura, .ro-angelring .angel-halo,
+  .ro-angelring .angel-wings, .ro-angelring .angel-sparkles { animation: none !important; }
+}
