@@ -1,7 +1,6 @@
 <?php if (!defined('FLUX_ROOT')) exit; ?>
 </main>
 <div class="ro-floating-language" aria-label="Language selection">
-  <label for="ro-language-select" class="ro-language-label">Language</label>
   <select id="ro-language-select" onchange="updatePreferredLanguage(this)" aria-label="Select language">
     <?php foreach(Flux::getAvailableLanguages() as $lang_key=>$lang): ?>
       <option value="<?php echo htmlspecialchars($lang_key) ?>"<?php if(!empty($_COOKIE['language']) && $_COOKIE['language']==$lang_key) echo ' selected="selected"' ?>><?php echo htmlspecialchars($lang) ?></option>
