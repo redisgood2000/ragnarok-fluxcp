@@ -867,3 +867,27 @@ body.ro-site { padding-bottom:76px !important; }
     font-size: 11px !important;
   }
 }
+
+
+/* Public preview mode: hide authentication UI defensively. */
+#loginbox,
+.loginbox,
+.login-form,
+#login-form,
+a[href*="module=account&amp;action=login"],
+a[href*="module=account&action=login"] {
+  display: none !important;
+}
+.ro-preview-notice {
+  max-width: 760px;
+  margin: 42px auto;
+  padding: 30px;
+  color: #dce6f7;
+  background: linear-gradient(145deg,#192945,#111c30);
+  border: 1px solid rgba(232,189,103,.38);
+  border-radius: 14px;
+  box-shadow: 0 18px 45px rgba(0,0,0,.28);
+}
+.ro-preview-notice h2 { margin-top: 0; color: #ffe1a0; }
+.ro-preview-notice p { color: #c7d4e7; }
+.ro-preview-notice a { color: #ffe1a0; }
