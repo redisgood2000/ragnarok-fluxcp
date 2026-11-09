@@ -8,6 +8,7 @@
       <p>Adventure awaits beneath the light of Angeling. Meet friends, explore mysterious lands, challenge mighty monsters, and write your own Ragnarok legend.</p>
       <div class="ro-actions">
         <a class="ro-button secondary" href="?module=server&amp;action=info">Explore Server Info</a>
+        <a class="ro-button" href="blackjack-preview.php">Play Blackjack</a>
       </div>
     </div>
     <div class="ro-angelring-stage" role="img" aria-label="A cheerful pink Angeling Poring with a golden halo and angel wings">
