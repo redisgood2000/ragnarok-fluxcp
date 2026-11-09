@@ -13,6 +13,7 @@
 <button class="ro-menu-toggle" id="ro-menu-toggle" type="button" aria-expanded="false" aria-controls="ro-main-nav"><i></i><i></i><i></i><b>MENU</b></button>
 <nav class="ro-main-nav" id="ro-main-nav" aria-label="Main navigation">
 <a class="ro-nav-home" href="<?php echo $this->basePath ?>">Home</a>
+<a class="ro-nav-home" href="<?php echo htmlspecialchars($this->basePath) ?>blackjack-preview.php">Blackjack</a>
 <?php $menuItems=$this->getMenuItems(); if(!empty($menuItems)): foreach($menuItems as $menuCategory=>$menus): if(!empty($menus)): ?>
 <details class="ro-nav-group"><summary><?php echo htmlspecialchars(Flux::message($menuCategory)) ?> <span>⌄</span></summary><div class="ro-nav-dropdown">
 <?php foreach($menus as $menuItem): if (($menuItem['module'] ?? '') === 'account' && in_array(($menuItem['action'] ?? ''), array('create','login'), true)) continue; ?><a href="<?php echo htmlspecialchars($menuItem['url'],ENT_QUOTES,'UTF-8') ?>"><?php echo htmlspecialchars(Flux::message($menuItem['name'])) ?></a><?php endforeach ?>
