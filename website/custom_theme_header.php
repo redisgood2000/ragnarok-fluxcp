@@ -15,7 +15,7 @@
 <a class="ro-nav-home" href="<?php echo $this->basePath ?>">Home</a>
 <?php $menuItems=$this->getMenuItems(); if(!empty($menuItems)): foreach($menuItems as $menuCategory=>$menus): if(!empty($menus)): ?>
 <details class="ro-nav-group"><summary><?php echo htmlspecialchars(Flux::message($menuCategory)) ?> <span>⌄</span></summary><div class="ro-nav-dropdown">
-<?php foreach($menus as $menuItem): ?><a href="<?php echo htmlspecialchars($menuItem['url'],ENT_QUOTES,'UTF-8') ?>"><?php echo htmlspecialchars(Flux::message($menuItem['name'])) ?></a><?php endforeach ?>
+<?php foreach($menus as $menuItem): if (($menuItem['module'] ?? '') === 'account' && ($menuItem['action'] ?? '') === 'create') continue; ?><a href="<?php echo htmlspecialchars($menuItem['url'],ENT_QUOTES,'UTF-8') ?>"><?php echo htmlspecialchars(Flux::message($menuItem['name'])) ?></a><?php endforeach ?>
 </div></details>
 <?php endif; endforeach; endif ?>
 <?php $adminMenuItems=$this->getAdminMenuItems(); if(!empty($adminMenuItems) && Flux::config('AdminMenuNewStyle')): ?>
