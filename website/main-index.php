@@ -7,7 +7,6 @@
       <h1>Welcome to Rune Midgard.</h1>
       <p>Adventure awaits beneath the light of Angeling. Meet friends, explore mysterious lands, challenge mighty monsters, and write your own Ragnarok legend.</p>
       <div class="ro-actions">
-        <a class="ro-button" href="?module=account&amp;action=create">Create an Account</a>
         <a class="ro-button secondary" href="?module=server&amp;action=info">Explore Server Info</a>
       </div>
     </div>
