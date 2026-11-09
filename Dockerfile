@@ -16,6 +16,7 @@ RUN git clone --depth 1 --branch master https://github.com/rathena/FluxCP.git /v
 COPY config/import/ /var/www/html/config/import/
 COPY website/account-create-disabled.php /var/www/html/modules/account/create.php
 COPY website/account-login-disabled.php /var/www/html/modules/account/login.php
+COPY website/blackjack-preview.php /var/www/html/blackjack-preview.php
 COPY website/ /tmp/fluxcp-website/
 
 # Create an independent third theme by cloning the upstream Bootstrap theme.
